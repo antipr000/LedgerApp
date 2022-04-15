@@ -19,7 +19,7 @@ public class LedgerStorageTest {
     }
 
     @Test
-    public void allOperationsWorksCorrectly() throws Exception{
+    public void allOperationsWorksCorrectly(){
         LedgerStorage ledgerStorage = new LedgerStorage();
         ledgerStorage.addLoan("IDIDI", "Dale", 5000, 1, 6);
         ledgerStorage.addLoan("MBI", "Harry", 10000, 3, 7);

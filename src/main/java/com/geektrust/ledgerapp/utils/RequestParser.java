@@ -21,26 +21,26 @@ public class RequestParser {
 
     public void parseRequest(String []data) {
         switch (data[0]) {
-            case "LOAN":
+            case "LOAN" -> {
                 bankName = data[1];
                 borrowerName = data[2];
                 principalAmount = Integer.parseInt(data[3]);
                 numYears = Integer.parseInt(data[4]);
                 rateOfInterest = Integer.parseInt(data[5]);
-                break;
-            case "PAYMENT":
+            }
+            case "PAYMENT" -> {
                 bankName = data[1];
                 borrowerName = data[2];
                 lumpSumAmount = Integer.parseInt(data[3]);
                 numEmis = Integer.parseInt(data[4]);
-                break;
-            case "BALANCE":
+            }
+            case "BALANCE" -> {
                 bankName = data[1];
                 borrowerName = data[2];
                 numEmis = Integer.parseInt(data[3]);
-                break;
-            default:
-                break;
+            }
+            default -> {
+            }
         }
     }
 }

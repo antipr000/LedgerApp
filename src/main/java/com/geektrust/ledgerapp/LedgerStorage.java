@@ -23,7 +23,7 @@ public class LedgerStorage {
         ledger.put(bankName, borrowerNameToDataMap);
     }
 
-    public void payment(String bankName, String borrowerName, int lumpSum, int emiNumber) throws Exception {
+    public void payment(String bankName, String borrowerName, int lumpSum, int emiNumber) {
         Borrower borrower = ledger.get(bankName).get(borrowerName);
         borrower.addPayment(emiNumber, lumpSum);
     }

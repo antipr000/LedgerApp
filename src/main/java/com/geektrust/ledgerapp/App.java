@@ -22,32 +22,25 @@ public class App {
                 requestParser.parseRequest(lineItems);
 
                 switch (lineItems[0]) {
-                    case "LOAN":
-                        ledgerStorage.addLoan(
-                                requestParser.bankName,
-                                requestParser.borrowerName,
-                                requestParser.principalAmount,
-                                requestParser.numYears,
-                                requestParser.rateOfInterest);
-                        break;
-                    case "PAYMENT":
-                        ledgerStorage.payment(requestParser.bankName, requestParser.borrowerName, requestParser.lumpSumAmount, requestParser.numEmis);
-                        break;
-                    case "BALANCE":
+                    case "LOAN" -> ledgerStorage.addLoan(
+                            requestParser.bankName,
+                            requestParser.borrowerName,
+                            requestParser.principalAmount,
+                            requestParser.numYears,
+                            requestParser.rateOfInterest);
+                    case "PAYMENT" ->
+                            ledgerStorage.payment(requestParser.bankName, requestParser.borrowerName, requestParser.lumpSumAmount, requestParser.numEmis);
+                    case "BALANCE" -> {
                         EmiResponse response = ledgerStorage.balance(requestParser.bankName,
                                 requestParser.borrowerName,
                                 requestParser.numEmis);
                         response.printEmi();
-                        break;
+                    }
                 }
             }
         }catch (FileNotFoundException e) {
             System.out.println("File not found");
             e.printStackTrace();
-        }catch (Exception e) {
-            System.out.println("Something went wrong");
-            e.printStackTrace();
         }
-
     }
 }

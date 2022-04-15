@@ -6,22 +6,16 @@ import com.geektrust.ledgerapp.definitions.Lumpsum;
 import java.util.ArrayList;
 
 public class Borrower {
-    private String bankName;
-    private String borrowerName;
-    private int principalAmount;
-    private int numYears;
-    private int rateOfInterest;
+    private final String bankName;
+    private final String borrowerName;
     ArrayList<Lumpsum> lumpsums;
-    private int totalRepayAmount;
-    private int emiAmount;
+    private final int totalRepayAmount;
+    private final int emiAmount;
 
     public Borrower(String bankName, String borrowerName, int principalAmount,
                                    int numYears, int rateOfInterest) {
         this.bankName = bankName;
         this.borrowerName = borrowerName;
-        this.principalAmount = principalAmount;
-        this.numYears = numYears;
-        this.rateOfInterest = rateOfInterest;
         this.totalRepayAmount = principalAmount + Math.ceilDiv((principalAmount * rateOfInterest * numYears), 100);
         this.emiAmount = Math.ceilDiv(this.totalRepayAmount, (12 * numYears));
         lumpsums = new ArrayList<>();
