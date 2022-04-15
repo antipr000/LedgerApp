@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class App {
+public class Geektrust {
     public static void main(String[] args) {
         String filepath = args[0];
         LedgerStorage ledgerStorage = new LedgerStorage();
